@@ -1,18 +1,19 @@
 // Pick a random word
-var words = ["Awkward", "Bagpipes", "Crypt", "Dwarves", "Fishhook", "Gazebo", "Ivory", "Jukebox", "Kayak", "Pixel", "Zombie", "Sphinx", "Jinx", "Quip", "Mystify"];
+var words = ["Crypt", "Dwarves", "Gazebo", "Ivory", "Jukebox", "Pixel", "Zombie", "Sphinx", "Jinx", "Quip"];
 var wordsIndex = Math.floor(Math.random() * words.length);
 var chosenWord=words[wordsIndex].toLowerCase();
 var rightWord =[];
 var wrongWord = [];
 var underscore = [];
 var guesses=12;
-var wins = 0;
 console.log(chosenWord);
 
 // DOM manipulation
 
 
 // Main
+
+var guesses = document.getElementById("remainng-guesses");
 
 
 
@@ -50,7 +51,8 @@ document.addEventListener('keypress', (event) => {
     if(underscore.join('') == chosenWord){
         var message = document.getElementById("next");
         message.textContent = "You Win!  Play Again?";
-        wins++;
+        var wins=0;
+        var winsCount = document.getElementById("wins-count").innerHTML=wins+1;
     }
 
 });
