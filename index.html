@@ -11,7 +11,7 @@
 
     <script src="../Word-Guess-Game/assets/javascript/game.js"></script>
 
-    <title>Hangman Game</title>
+    <title id = "title">Hangman Game</title>
   </head>
   <body>
       <div class="container-fluid">
@@ -30,7 +30,7 @@
               <div class="col body-col text-center">
                 <div class="container">
                   <div class="shadow-lg row col2-row justify-content-center">
-                    <div id="wins">Wins</div>
+                    <div class ="container" id="wins">Wins</div>
                     <div id="wins-count" class="container">0</div>
                   </div>
                   <div class="row col2-row justify-content-center">
@@ -38,10 +38,10 @@
                     <div class="container-fluid" id="remaining-guesses"></div>
                   </div>
                   <div class="row col2-row justify-content-center">
-                    <div>Letters Guessed </div>
-                    <div id="wrongGuess"></div>
+                    <div class = "container">Letters Guessed </div>
+                    <div class="container-fluid" id="wrongGuess"></div>
                   </div>
-                  <button>Next Word</button>
+                  <button><span id="next">Next Word</span></button>
                 </div>
               </div>
             </div>
