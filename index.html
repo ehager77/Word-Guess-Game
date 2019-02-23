@@ -24,14 +24,14 @@
               <div class="col body-col text-center">
                   <div id="current-word" class="row col2-row justify-content-center">
                     <div class="container">Current Word</div>
-                    <p id="current-word-letters"></p>
+                    <p id="rightGuess"></p>
                   </div>
               </div>
               <div class="col body-col text-center">
                 <div class="container">
-                  <div class="row col2-row justify-content-center">
+                  <div class="shadow-lg row col2-row justify-content-center">
                     <div id="wins">Wins</div>
-                    <div class="container-fluid">0</div>
+                    <div id="wins-count" class="container">0</div>
                   </div>
                   <div class="row col2-row justify-content-center">
                     <div>Remaing Guesses </div>
@@ -39,15 +39,9 @@
                   </div>
                   <div class="row col2-row justify-content-center">
                     <div>Letters Guessed </div>
-                    <div id="already-guessed"></div>
+                    <div id="wrongGuess"></div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center letters-row">
-              <div class="container">
-                <div class="col letters-col justify-content-center">
-                  Put Letters here
+                  <button>Next Word</button>
                 </div>
               </div>
             </div>

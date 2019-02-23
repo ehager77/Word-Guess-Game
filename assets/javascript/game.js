@@ -1,36 +1,38 @@
 // Pick a random word
+var words = ["Awkward", "Bagpipes", "Crypt", "Dwarves", "Fishhook", "Gazebo", "Ivory", "Jukebox", "Kayak", "Pixel", "Zombie", "Sphinx", "Jinx", "Quip", "Mystify"];
+var wordsIndex = Math.floor(Math.random() * words.length);
+var chosenWord=words[wordsIndex];
+var rightWord =[];
+var wrongWord = [];
+var underscore = [];
+console.log(chosenWord); 
 
-var words =[
-    "javascript",
-    "monkey",
-    "amazing",
-    "pancake",
-];
-
-var word = words[Math.floor(Math.random() * words.length)]
-
-var answerArray = [];
-for (var i=0; i <word.length; i++){
-    answerArray[i] = "_";
-}
-
-var remainingLetters = word.length;
-
-// While the word has not been guessed {
-    while{
-
+// for loop to gen underscore and push to the underscore array
+var generateUnderscore = function() {
+    for(var i = 0; i < chosenWord.length;i++){
+        underscore.push("_"); 
     }
-    // Show the player their current progres
-    //  Get a guess from the player
-    // If the player wants to quit the game {
-        // Quit the game
-    // }
- Else If the guess is not a single letter {
- Tell the player to pick a single letter
- }
- Else {
- If the guess is in the word {
- Update the player's progress with the guess
- }
- }
+    return underscore;
 }
+
+console.log(generateUnderscore());
+
+// document.addEventListener('keypress', function(event)
+// using arrow functiom
+document.addEventListener('keypress', (event) => {
+    var letter = String.fromCharCode(event.keyCode);
+    // if guess is correct
+    if(chosenWord.toLowerCase().indexOf(letter) > -1){
+        rightWord.push(letter);
+        console.log(rightWord);
+    }
+
+    else{
+        wrongWord.push(letter);
+        console.log(wrongWord);
+    }
+
+
+
+});
+
