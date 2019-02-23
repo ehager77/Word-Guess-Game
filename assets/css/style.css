@@ -1,0 +1,69 @@
+h1{
+    text-align: center;
+}
+
+col{
+    margin:10px;
+}
+
+.col2-row{
+    padding-top: 10px;
+    height: 95px;
+    width: 100%;
+    border: 2px solid black;
+    margin-left: 0px;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+.body-col-1{
+    padding:10px;
+    margin:auto;
+    width: 90%;
+    height:87.5%;
+    border: 2px solid black;
+}
+
+.body-col{
+    margin:10px;
+    width: 50%;
+    height: 400px;
+}
+
+.img-col{
+    margin:20px;
+    border: 2px solid black;
+}
+
+.letters-col{
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:20px;
+    width:96.5%;
+    height: 80%;
+    border: 2px solid black;  
+}
+
+.letterBtn-container{
+    border: 2px solid black;
+}
+
+.letters-row{
+    margin-left:1px;
+    width:100%;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+#current-word-row{
+    border: 2px sol;
+}
+
+#wins, #remaining-guess, #already-guessed{
+    height:10%;
+}
+
+
+
