@@ -13,7 +13,7 @@
 
     <title id = "title">Hangman Game</title>
   </head>
-  <body>
+  <body onload="main()">
       <div class="container-fluid">
         <div class="jumbotron text-center">
             <h1>HANGMAN</h1>
@@ -41,9 +41,17 @@
                     <div class = "container">Letters Guessed </div>
                     <div class="container-fluid" id="wrongGuess"></div>
                   </div>
-                  <button><span id="next">Next Word</span></button>
+                  <button><span id="next">Play Game</span></button>
                 </div>
               </div>
+            </div>
+            <div class="row justify-content-center letters-row">
+              <div class="container">
+                <div id = "buttons" class="col letters-col justify-content-center">
+                  Put Letters here
+                </div>
+              </div>
+            </div>
             </div>
         </div>
       </div>
