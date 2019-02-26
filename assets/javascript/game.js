@@ -20,13 +20,19 @@ var wins=0;
         for(var i = 0; i < chosenWord.length;i++){
             underscore.push("_ ");
             console.log(underscore);
+
         }
+
+        document.getElementById("underscores").innerHTML = underscore.join(" ");
+        console.log(underscore)
+        
 
 
     var wrongWord = [];
     var guesses=10;
 
     document.getElementById("remaining-guesses").textContent = guesses;
+
 
        
         
@@ -41,6 +47,7 @@ var wins=0;
                 underscore[i] = letter;
                 // rightWord.push(letter);
                 console.log(underscore);
+                var underscores
             }
 
         }
@@ -52,7 +59,7 @@ var wins=0;
             underscore[chosenWord.toLowerCase().indexOf(letter)] = letter;
             var underScoreDOM = document.getElementById("underscores");
             console.log(underScoreDOM);
-            underScoreDOM.textContent = underscore.join("");
+            underScoreDOM.textContent = underscore.join(" ");
         }
         
         // if guess is wrong
@@ -110,9 +117,11 @@ var wins=0;
                 // incremenmt win
                 document.getElementById("wins-count").innerHTML=++wins;
                 win = false;
+                start();
             }
 
-            start();
+            
+            
         }
         
 
