@@ -1,49 +1,29 @@
-function start(){
-
-
-
-// Pick a random word
-var words = ["Awkward", "Jinx", "Quip"];
-//var rightWord =[];
+var wrongWord = [];
 var underscore = [];
-var wins=0;
+var words = ["Awkward", "Jinx", "Quip"];
+var guesses = 10;
+var wins = "";
+var chosenWord = "";
+
+
+function start() {
+
+    reset();
+
+    console.log(wrongWord);
+    console.log(underscore);
 
 
 
 
-    var randWord = Math.floor(Math.random() * words.length);
-    var chosenWord=words[randWord].toLowerCase();
-    console.log(chosenWord);
 
-
-    // for loop to gen underscore and push to the underscore array
-        for(var i = 0; i < chosenWord.length;i++){
-            underscore.push("_ ");
-            console.log(underscore);
-
-        }
-
-        document.getElementById("underscores").innerHTML = underscore.join(" ");
-        console.log(underscore)
-        
-
-
-    var wrongWord = [];
-    var guesses=10;
-
-    document.getElementById("remaining-guesses").textContent = guesses;
-
-
-       
-        
-        
-        // document.addEventListener('keypress', function(event)
+    // document.addEventListener('keypress', function(event)
     // using arrow functiom
     document.addEventListener('keypress', (event) => {
         var letter = String.fromCharCode(event.keyCode);
         // if guess is correct
-        for(var i = 0; i <chosenWord.length; i++){
-            if(chosenWord[i] === letter){
+        for (var i = 0; i < chosenWord.length; i++) {
+            if (chosenWord[i] === letter) {
                 underscore[i] = letter;
                 // rightWord.push(letter);
                 console.log(underscore);
@@ -53,7 +33,7 @@ var wins=0;
         }
 
 
-        if(chosenWord.toLowerCase().indexOf(letter) > -1){
+        if (chosenWord.toLowerCase().indexOf(letter) > -1) {
             // add to right words array
             // replace underscore with keypress
             underscore[chosenWord.toLowerCase().indexOf(letter)] = letter;
@@ -61,9 +41,9 @@ var wins=0;
             console.log(underScoreDOM);
             underScoreDOM.textContent = underscore.join(" ");
         }
-        
+
         // if guess is wrong
-        else{
+        else {
 
             guesses--;
             document.getElementById("remaining-guesses").textContent = guesses;
@@ -72,62 +52,92 @@ var wins=0;
             //wrongWord.push(letter);
             console.log(guesses)
 
+        }
+
         console.log(wrongWord);
-        if(wrongWord.indexOf(letter) === -1){
+        console.log(letter);
+        console.log(wrongWord.indexOf(letter));
+
+        if (underscore.indexOf(letter) === -1 && wrongWord.indexOf(letter) === -1) {
             wrongWord.push(letter);
+            var wrongGuess = document.getElementById("wrongGuess");
             wrongGuess.textContent = wrongWord.join(', ');
 
-        }else{
+        }
+
+
+        else if (wrongWord.indexOf(letter) > -1) {
             alert("You suck.");
         }
-            // for(var i=0; i< underscore.length; i++){
-            //     if(wrongWord[i] === letter){
-            //         //console.log(wrongWord[i]);
-            //         alert("You suck.")
-            //     }
-            //     else if(wrongWord.indexOf(letter)===-1){
-            //         wrongWord.push(letter);
-            //         console.log(wrongWord);
-            //         var wrongGuess = document.getElementById("wrongGuess");
-            //         wrongGuess.textContent = wrongWord.join(', ');
-            //     }
-                
-            // }
-            
+        // for(var i=0; i< underscore.length; i++){
+        //     if(wrongWord[i] === letter){
+        //         //console.log(wrongWord[i]);
+        //         alert("You suck.")
+        //     }
+        //     else if(wrongWord.indexOf(letter)===-1){
+        //         wrongWord.push(letter);
+        //         console.log(wrongWord);
+        //         var wrongGuess = document.getElementById("wrongGuess");
+        //         wrongGuess.textContent = wrongWord.join(', ');
+        //     }
+
+        // }
+        document.getElementById("next").onclick = function () {
+            reset();
+            console.log(wins);
         }
-        var win = false;
-        if(underscore.join('') == chosenWord){
+
+
+        if (underscore.join('') == chosenWord) {
+            // win = true;
+            wins++;
+            document.getElementById("wins-count").textContent = wins;
+            console.log(wins);
             var message = document.getElementById("next");
-            message.textContent = "You Win! Press Refresh to Play Again.";
-            var winsCount = document.getElementById("wins-count").innerHTML=wins+1;
-            win = true;
+            message.textContent = "You Win! Click to Play Again.";
         }
 
-        else{
-            if(guesses == 0){
+        else {
+            if (guesses === 0) {
                 var message = document.getElementById("next");
-                message.textContent = "You Suck.";
+                message.textContent = "You Lose. Click to Play Again";
+
+
 
             }
-        }
 
-        document.getElementById("next").onclick = function(){
-
-            if (win) {
-                // incremenmt win
-                document.getElementById("wins-count").innerHTML=++wins;
-                win = false;
-                start();
-            }
-
-            
-            
-        }
-        
 
         }
+
+    }
 
     );
- 
+
+}
+
+function reset(){
+
+    wrongWord = [];
+    underscore = [];
+    guesses = 10;
+    var underScoreDOM = document.getElementById("underscores");
+    underScoreDOM.textContent = underscore.join("");
+    var wrongGuess = document.getElementById("wrongGuess");
+    wrongGuess.textContent = wrongWord.join(', ');
+    document.getElementById("remaining-guesses").textContent = guesses;
+    var randWord = Math.floor(Math.random() * words.length);
+    chosenWord = words[randWord].toLowerCase();
+    for (var i = 0; i < chosenWord.length; i++) {
+        underscore.push("_ ");
+        console.log(underscore);
     }
+
+    document.getElementById("underscores").innerHTML = underscore.join(" ");
+    console.log(underscore)
+
+    document.getElementById("remaining-guesses").textContent = guesses;
+    document.getElementById("next").innerHTML="Play Game";
+
+
+}
 
